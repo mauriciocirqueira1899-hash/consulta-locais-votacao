@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Onde eu voto? | Salvador - versão corrigida</title>
+<style>
+:root{--blue:#123a68;--blue2:#1d568e;--gold:#e8b84a;--ink:#17283b;--muted:#627286;--bg:#f3f6fa;--white:#fff;--line:#e0e7ef;--green:#16845b}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);line-height:1.5}
+.hero{background:linear-gradient(135deg,#0d2d52,#1b5487);color:#fff;padding:34px 18px 76px;position:relative;overflow:hidden}.hero:after{content:"";position:absolute;width:280px;height:280px;border:38px solid #ffffff12;border-radius:50%;right:-55px;top:-110px}.wrap{max-width:1000px;margin:auto;position:relative;z-index:1}.brand{font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:#d9e8f7;font-weight:700}.hero h1{font-size:clamp(2rem,5vw,3.25rem);line-height:1.08;margin:14px 0 12px;max-width:700px}.hero p{max-width:650px;color:#e1ebf5;margin:0}.goldline{width:64px;height:5px;background:var(--gold);border-radius:4px;margin:22px 0}
+main{max-width:1000px;margin:-45px auto 40px;padding:0 16px;position:relative;z-index:2}.searchbox,.results,.notice,.help{background:var(--white);border:1px solid var(--line);border-radius:18px;box-shadow:0 10px 30px #16385b0b}.searchbox{padding:22px}.searchbox h2{font-size:1.1rem;margin:0 0 5px}.sub{color:var(--muted);font-size:.92rem;margin:0 0 18px}.fields{display:grid;grid-template-columns:1fr 1fr 1.5fr auto;gap:12px;align-items:end}.field label{display:block;font-size:.83rem;font-weight:700;margin:0 0 6px}.field input{width:100%;border:1px solid #cbd6e2;border-radius:10px;padding:13px 12px;font:inherit;outline:none;background:#fff}.field input:focus{border-color:var(--blue2);box-shadow:0 0 0 3px #1d568e18}.btn{border:0;border-radius:10px;padding:13px 17px;font:inherit;font-weight:750;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px}.btn-primary{background:var(--blue);color:#fff}.btn-primary:hover{background:var(--blue2)}.btn-light{background:#eaf1f8;color:var(--blue)}.btn-green{background:#e4f5ed;color:#096944}.hint{font-size:.8rem;color:var(--muted);margin-top:12px}.results{margin-top:18px;padding:20px}.results-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}.results h2{font-size:1.1rem;margin:0}.count{font-size:.8rem;color:var(--muted);background:#f0f4f8;padding:5px 9px;border-radius:99px}.card{border:1px solid var(--line);border-radius:14px;padding:18px;margin-top:12px}.cardtop{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;flex-wrap:wrap}.zone{font-size:.82rem;color:var(--blue2);font-weight:800;text-transform:uppercase;letter-spacing:.04em}.school{font-size:1.12rem;font-weight:800;margin:5px 0 2px}.old{color:var(--muted);font-size:.92rem}.arrow{color:var(--green);font-weight:800;margin:10px 0}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px}.actions .btn{font-size:.88rem;padding:10px 12px}.empty{padding:25px;text-align:center;color:var(--muted);background:#f8fafc;border:1px dashed #cbd6e2;border-radius:12px}.notice{padding:17px 20px;margin-top:18px;font-size:.9rem;color:#4d5e70;box-shadow:none}.notice strong{color:var(--ink)}.help{padding:20px;margin-top:18px;box-shadow:none}.help h2{font-size:1.05rem;margin:0 0 8px}.help p{margin:0 0 12px;color:var(--muted);font-size:.92rem}.footer{text-align:center;color:var(--muted);font-size:.8rem;padding:10px 18px 35px}.footer a{color:var(--blue2)}
+@media(max-width:650px){.fields{grid-template-columns:1fr}.hero{padding-bottom:70px}.searchbox{padding:18px}.actions .btn{flex:1 1 100%}.results{padding:15px}}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap"><div class="brand">Guia cidadão • Salvador, Bahia</div><div class="goldline"></div><h1>Seu local de votação mudou?</h1><p>Consulte as alterações cadastradas para Salvador e encontre o novo local de votação sem precisar procurar em um PDF extenso.</p></div></header>
+<main>
+<section class="searchbox" aria-labelledby="searchTitle"><h2 id="searchTitle">🔎 Consulte por zona ou seção eleitoral</h2><p class="sub">Informe a zona, a seção ou digite o nome da escola antiga. Só serão exibidos registros que constam na planilha cadastrada.</p>
+<form id="searchForm"><div class="fields"><div class="field"><label for="zona">Zona eleitoral</label><input id="zona" inputmode="numeric" placeholder="Ex.: 19"></div><div class="field"><label for="secao">Seção eleitoral</label><input id="secao" inputmode="numeric" placeholder="Ex.: 490"></div><div class="field"><label for="escolaAntiga">Nome da escola antiga</label><input id="escolaAntiga" placeholder="Ex.: Escola Municipal de Cajazeiras XI"></div><button class="btn btn-primary" type="submit">Buscar local</button></div></form><div class="hint">Dica: os números de zona e seção aparecem no título de eleitor.</div></section>
+<section class="results" aria-live="polite"><div class="results-head"><h2 id="resultTitle">Faça uma consulta</h2><span class="count" id="count">Aguardando busca</span></div><div id="resultsList"><div class="empty">Digite sua zona, seção ou o nome da escola antiga e clique em <strong>Buscar local</strong>.<br>O site só exibirá informações cadastradas na planilha.</div></div></section>
+<section class="notice"><strong>Importante:</strong> este é um protótipo independente, criado com os dados preenchidos na planilha enviada. Ele não é um site oficial da Justiça Eleitoral. Confirme sempre sua situação nos canais oficiais antes de se deslocar.</section>
+<section class="help"><h2>Precisa confirmar sua informação?</h2><p>Use o portal oficial do Tribunal Regional Eleitoral da Bahia ou entre em contato pelo WhatsApp informado na planilha.</p><div class="actions"><a class="btn btn-light" href="https://www.tre-ba.jus.br/" target="_blank" rel="noopener">Acessar portal do TRE-BA ↗</a><a class="btn btn-green" href="https://wa.me/557133737000" target="_blank" rel="noopener">Conversar pelo WhatsApp ↗</a></div></section>
+</main><footer class="footer">Protótipo comunitário de consulta • Salvador/BA • versão corrigida<br>As informações podem ser ampliadas e revisadas com colaboração local.</footer>
+<script>
+(function () {
+  const locais = [
+    { estado:'Bahia', cidade:'Salvador', zona:19, secao:490, atual:'ESCOLA MUNICIPAL MARIA ANTONIETA ALFARANO', enderecoAtual:'Escola Municipal Maria Antonieta Alfarano', linkAtual:'https://www.google.com/maps/search/?api=1&query=Escola+Municipal+Maria+Antonieta+Alfarano+Salvador', antigo:'ESCOLA MUNICIPAL DE CAJAZEIRAS XI', enderecoAntigo:'Escola Municipal De Cajazeiras Xi', linkAntigo:'https://www.google.com/maps/search/?api=1&query=Escola+Municipal+de+Cajazeiras+XI+Salvador' },
+    { estado:'Bahia', cidade:'Salvador', zona:19, secao:817, atual:'COLÉGIO ESTADUAL DE NOVA ESPERANÇA', enderecoAtual:'Colégio Estadual Nova Esperança', linkAtual:'https://www.google.com/maps/search/?api=1&query=Col%C3%A9gio+Estadual+Nova+Esperan%C3%A7a+Salvador', antigo:'ESCOLA MUNICIPAL MAURÍCIO JOSÉ BARBOSA', enderecoAntigo:'Escola Municipal', linkAntigo:'https://www.google.com/maps/search/?api=1&query=Escola+Municipal+Maur%C3%ADcio+Jos%C3%A9+Barbosa+Salvador' },
+    { estado:'Bahia', cidade:'Salvador', zona:19, secao:819, atual:'COLÉGIO ESTADUAL DE NOVA ESPERANÇA', enderecoAtual:'Colégio Estadual Nova Esperança', linkAtual:'https://www.google.com/maps/search/?api=1&query=Col%C3%A9gio+Estadual+Nova+Esperan%C3%A7a+Salvador', antigo:'ESCOLA MUNICIPAL MAURÍCIO JOSÉ BARBOSA', enderecoAntigo:'Escola Municipal', linkAntigo:'https://www.google.com/maps/search/?api=1&query=Escola+Municipal+Maur%C3%ADcio+Jos%C3%A9+Barbosa+Salvador' },
+    { estado:'Bahia', cidade:'Salvador', zona:19, secao:824, atual:'ESCOLA MUNICIPAL MARIA ANTONIETA ALFARANO', enderecoAtual:'Escola Municipal Maria Antonieta Alfarano', linkAtual:'https://www.google.com/maps/search/?api=1&query=Escola+Municipal+Maria+Antonieta+Alfarano+Salvador', antigo:'ESCOLA MUNICIPAL DE CAJAZEIRAS XI', enderecoAntigo:'Escola Municipal De Cajazeiras Xi', linkAntigo:'https://www.google.com/maps/search/?api=1&query=Escola+Municipal+de+Cajazeiras+XI+Salvador' }
+  ];
+  const form = document.getElementById('searchForm');
+  const zonaInput = document.getElementById('zona');
+  const secaoInput = document.getElementById('secao');
+  const escolaAntigaInput = document.getElementById('escolaAntiga');
+  const list = document.getElementById('resultsList');
+  const count = document.getElementById('count');
+  const title = document.getElementById('resultTitle');
+  const normalizar = valor => valor.trim().replace(/\D/g, '').replace(/^0+(?=\d)/, '');
+  const normalizarTexto = valor => valor.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase('pt-BR').trim();
+  const esc = valor => String(valor ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+  function mostrar(rows, pesquisou) {
+    if (!pesquisou) {
+      title.textContent = 'Faça uma consulta'; count.textContent = 'Aguardando busca';
+      list.innerHTML = '<div class="empty">Digite sua zona, seção ou o nome da escola antiga e clique em <strong>Buscar local</strong>.<br>O site só exibirá informações cadastradas na planilha.</div>';
+      return;
+    }
+    title.textContent = 'Resultado da consulta';
+    count.textContent = rows.length + (rows.length === 1 ? ' registro encontrado' : ' registros encontrados');
+    if (!rows.length) {
+      list.innerHTML = '<div class="empty"><strong>Nenhum local cadastrado para os dados informados.</strong><br>Confira os números digitados ou consulte os canais oficiais do TRE-BA.</div>';
+      return;
+    }
+    list.innerHTML = rows.map(r => `<article class="card"><div class="zone">${esc(r.cidade)} • Zona ${r.zona} • Seção ${r.secao}</div><div class="school">${esc(r.atual)}</div><div class="old">Local anterior: ${esc(r.antigo)}</div><div class="arrow">↓ Novo local de votação</div><div><strong>${esc(r.enderecoAtual)}</strong></div><div class="actions"><a class="btn btn-primary" href="${esc(r.linkAtual)}" target="_blank" rel="noopener">📍 Ver novo local no mapa</a><a class="btn btn-light" href="${esc(r.linkAntigo)}" target="_blank" rel="noopener">Ver local antigo no mapa</a></div></article>`).join('');
+  }
+
+  function buscar() {
+    const z = normalizar(zonaInput.value);
+    const s = normalizar(secaoInput.value);
+    const escolaAntiga = normalizarTexto(escolaAntigaInput.value);
+    if (!z && !s && !escolaAntiga) {
+      title.textContent = 'Informe sua zona ou seção'; count.textContent = 'Busca não realizada';
+      list.innerHTML = '<div class="empty">Preencha pelo menos um dos campos para pesquisar.</div>';
+      return;
+    }
+    const rows = locais.filter(r => (!z || String(r.zona) === z) && (!s || String(r.secao) === s) && (!escolaAntiga || normalizarTexto(r.antigo).includes(escolaAntiga)));
+    mostrar(rows, true);
+  }
+  form.addEventListener('submit', function (event) { event.preventDefault(); buscar(); });
+  // Compatibilidade adicional: a pesquisa também funciona ao pressionar Enter nos campos.
+  zonaInput.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); buscar(); } });
+  secaoInput.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); buscar(); } });
+  escolaAntigaInput.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); buscar(); } });
+  mostrar([], false);
+})();
+</script>
+</body></html>
